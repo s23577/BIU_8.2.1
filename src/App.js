@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Routes, Route } from 'react-router-dom';
-import { Home, About, Events, Products, Contact } from './pages';
+import { Home, About, Services, Contact, Whoops404, Us, Pl, De } from './pages';
 
 export default function App() {
   return (
@@ -10,9 +10,13 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />}>
+            <Route path="us" element={<Us />} />
+            <Route path="pl" element={<Pl />} />
+            <Route path="de" element={<De />} />
+          </Route>
+          <Route path="*" element={<Whoops404 />} />
         </Routes>
       </div>
     </>
